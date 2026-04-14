@@ -1,0 +1,262 @@
+You are a world-class Staff Frontend Engineer and Product Designer who builds interfaces at the level of Stripe, Vercel, Linear, and modern AI platforms.
+
+Your task is to DESIGN and BUILD a production-grade, high-performance, single-page portfolio website using React + Tailwind CSS.
+
+This project will run in a FRONTEND-ONLY environment (Emergent).
+You MUST NOT use any backend, APIs, databases, authentication, or server-side logic.
+
+Everything must work purely on the frontend.
+
+--------------------------------------------------
+🧠 EXECUTION MODE (CRITICAL)
+--------------------------------------------------
+
+Before writing code:
+- Plan component structure
+- Plan layout hierarchy
+- Plan animation flow
+
+Do NOT output your thinking.
+Only output clean, final, production-ready code.
+
+--------------------------------------------------
+👤 USER CONTEXT
+--------------------------------------------------
+
+Name: Aniket Pandey  
+Role: GenAI Systems Developer | AI Product Builder (UI/UX Focused)
+
+I will attach my resume.
+
+You MUST:
+- Extract relevant content (projects, skills, experience)
+- Rewrite content for clarity, impact, and premium tone
+- Remove unnecessary or weak content
+- Present everything like a high-end product portfolio
+
+Do NOT copy resume text blindly.
+
+--------------------------------------------------
+🎯 EXPERIENCE GOAL
+--------------------------------------------------
+
+This is NOT a resume website.
+
+The final result must feel like:
+- A premium AI product landing page
+- A startup founder’s personal brand
+- A polished SaaS interface
+
+It should communicate:
+→ Intelligence  
+→ Product thinking  
+→ Technical depth  
+→ Clean UX  
+
+--------------------------------------------------
+🎨 DESIGN SYSTEM (STRICT — LIGHT THEME ONLY)
+--------------------------------------------------
+
+Theme: "Cognitive Flow AI"
+
+Background:
+- Gradient: #F8FAFC → #ECFEFF
+- Add subtle noise/grain texture
+- Optional soft radial highlights
+
+Color System:
+- Primary (Blue): #0EA5E9 → for actions
+- Secondary (Green): #22C55E → for results/highlights
+- Accent (Violet): #8B5CF6 → for intelligence/glow
+- Highlight (Amber): #F59E0B → VERY limited use
+- Text Primary: #020617
+- Text Secondary: #475569
+
+UI Principles:
+- Light, clean, breathable layout
+- Glassmorphism (backdrop blur, low opacity cards)
+- Rounded corners (xl / 2xl)
+- Soft layered shadows
+- Minimal but meaningful color usage
+
+DO NOT create a dark UI.
+
+--------------------------------------------------
+⚡ ANIMATION SYSTEM (MANDATORY)
+--------------------------------------------------
+
+Use Framer Motion throughout.
+
+Rules:
+- Entry animation: fade + translateY (20px → 0)
+- Duration: 0.4–0.6s
+- Easing: easeInOut
+
+Hover interactions:
+- Scale: 1.03–1.05
+- Soft glow increase (violet or blue)
+- Cards lift slightly
+
+Use stagger animations for grids.
+
+Animations must feel smooth and premium (no jank).
+
+--------------------------------------------------
+🧱 STRUCTURE (NON-NEGOTIABLE)
+--------------------------------------------------
+
+1. HERO
+- Name: "Aniket Pandey"
+- Subtitle:
+  "GenAI Systems Developer | AI Product Builder (UI/UX Focused)"
+- Short, refined summary (rewrite from resume)
+- CTA buttons:
+  → View Projects
+  → Contact Me
+
+Enhance with subtle animated gradient or glow background.
+
+--------------------------------------------------
+
+2. SKILLS
+Divide into:
+
+A. GenAI & Intelligent Systems  
+B. Development  
+C. DevOps & Cloud  
+
+Each skill:
+- Glass card
+- Icon + label
+- Hover animation
+
+--------------------------------------------------
+
+3. PROJECTS (CRITICAL — MUST SPLIT)
+
+Create TWO CLEAR SECTIONS:
+
+-------------------------
+A. GenAI Projects
+-------------------------
+Include:
+- AI Recruiter Intelligence System
+- AI Ops Copilot
+
+Enhance using resume:
+- Multi-agent systems
+- AI pipelines
+- Decision workflows
+
+-------------------------
+B. Other Projects
+-------------------------
+- Extract remaining projects from resume
+- Focus on development and UI/UX work
+
+-------------------------
+
+Each project card MUST include:
+- Title
+- Refined description
+- Tech stack tags
+- Hover animation (lift + glow)
+
+--------------------------------------------------
+
+4. EXPERIENCE
+- Extract from resume
+- Convert into clean timeline or cards
+- Focus on impact, not responsibilities
+- Add subtle animations
+
+--------------------------------------------------
+
+5. TECHNICAL PROOF (SIGNATURE SECTION)
+
+Create a developer-style code block:
+
+- Dark editor style INSIDE light UI
+- Syntax highlighting
+- Rounded container + glow border
+
+Include:
+- Example AI agent or workflow function (JS or Python)
+
+This section must feel like a real developer tool.
+
+--------------------------------------------------
+
+6. CONTACT
+Include:
+- Email
+- LinkedIn
+- GitHub
+
+Minimal, clean layout.
+
+--------------------------------------------------
+
+7. FLOATING WHATSAPP BUTTON (STRICT REQUIREMENT)
+
+This MUST work correctly.
+
+Use EXACT link:
+
+https://wa.me/917984266324?text=Hi%20Aniket%2C%20I%20reviewed%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20potential%20project%20with%20you.
+
+Requirements:
+- Fixed bottom-right corner
+- Opens in new tab
+- Fully clickable (no overlap issues)
+
+Design:
+- Gradient: Blue → Green
+- Rounded full button
+- Glow shadow
+- Pulse animation (Framer Motion)
+
+Tooltip:
+"Chat on WhatsApp"
+
+--------------------------------------------------
+⚙️ TECH STACK RULES
+--------------------------------------------------
+
+- React (functional components ONLY)
+- Tailwind CSS ONLY (no external CSS)
+- Framer Motion REQUIRED
+- No backend or APIs
+
+--------------------------------------------------
+📐 CODE QUALITY RULES
+--------------------------------------------------
+
+- Modular component structure (Hero, Skills, Projects, etc.)
+- Reusable UI components
+- Clean, readable code
+- Proper spacing and alignment
+- Fully responsive (mobile-first)
+
+--------------------------------------------------
+🚫 HARD RESTRICTIONS
+--------------------------------------------------
+
+- DO NOT generate generic portfolio UI
+- DO NOT skip animations
+- DO NOT use dark theme
+- DO NOT leave placeholders
+- DO NOT generate incomplete code
+
+--------------------------------------------------
+📦 FINAL OUTPUT
+--------------------------------------------------
+
+You MUST provide:
+
+1. Full working React code
+2. Component-based structure
+3. Tailwind classes inline
+4. Instructions to run locally
+
+The final result must feel like a premium AI product — not a resume website.
