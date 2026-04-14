@@ -269,13 +269,13 @@ function SystemModule({ module, index }: SystemModuleProps) {
 
 function TechnicalProof() {
   return (
-    <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-24">
+    <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-16 md:py-20">
       <SectionHeader
         eyebrow="Technical proof"
         title="A workflow-first way to design agents."
         description="The logic behind these systems is intentionally inspectable: agent steps, risk review, confidence scoring, and human-readable outputs are all part of the interface."
       />
-      <motion.div variants={fadeIn} className="mt-12 overflow-hidden rounded-2xl border border-white/30 bg-slate-950 shadow-[0_20px_65px_rgba(15,23,42,0.14)]">
+      <motion.div variants={fadeIn} className="mt-8 overflow-hidden rounded-2xl border border-white/30 bg-slate-950 shadow-[0_20px_65px_rgba(15,23,42,0.14)]">
         <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-slate-600" />
@@ -320,8 +320,8 @@ function Home() {
         </div>
       </header>
 
-      <main id="top" className="mx-auto max-w-6xl px-6 pt-32 md:pt-40">
-        <motion.section initial="hidden" animate="visible" variants={staggerContainer} className="relative grid min-h-[82vh] items-center gap-16 py-24 lg:grid-cols-[0.92fr_0.9fr]">
+      <main id="top" className="mx-auto max-w-6xl px-6">
+        <motion.section initial="hidden" animate="visible" variants={staggerContainer} className="relative grid items-center gap-10 pt-24 pb-16 md:gap-12 lg:grid-cols-[0.92fr_0.9fr]">
           <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-2xl">
             {backgroundNodes.map((node) => (
               <motion.span
@@ -338,14 +338,14 @@ function Home() {
             <motion.p variants={fadeIn} className="inline-flex rounded-full border border-white/30 bg-white/60 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600 shadow-sm backdrop-blur-md">
               GenAI Systems Developer | AI Product Builder (UI/UX Focused)
             </motion.p>
-            <motion.p variants={fadeIn} className="mt-9 text-sm font-semibold uppercase tracking-[0.24em] text-sky-600">Aniket Pandey</motion.p>
+            <motion.p variants={fadeIn} className="mt-7 text-sm font-semibold uppercase tracking-[0.24em] text-sky-600">Aniket Pandey</motion.p>
             <motion.h1 variants={fadeIn} className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.055em] text-slate-950 md:text-6xl lg:text-7xl lg:leading-[0.98]">
               Building Intelligent Systems, Not Just Applications
             </motion.h1>
-            <motion.p variants={fadeIn} className="mt-8 mb-4 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
+            <motion.p variants={fadeIn} className="mt-6 mb-4 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
               I design multi-agent AI workflows that move from messy inputs to structured decisions, usable outputs, and interfaces people can actually trust.
             </motion.p>
-            <motion.div variants={fadeIn} className="mt-10 flex flex-wrap gap-4">
+            <motion.div variants={fadeIn} className="mt-8 flex flex-wrap gap-4">
               <motion.a whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.98 }} href="#systems" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white shadow-[0_14px_36px_rgba(15,23,42,0.16)] transition-all hover:bg-slate-800 hover:shadow-[0_16px_42px_rgba(124,58,237,0.14)]">
                 Explore Systems <ArrowRight className="h-4 w-4" />
               </motion.a>
@@ -397,9 +397,9 @@ function Home() {
           </motion.div>
         </motion.section>
 
-        <motion.section id="skills" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-20">
+        <motion.section id="skills" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-16 md:py-20">
           <SectionHeader eyebrow="System layers" title="A compact stack for turning AI workflows into usable products." description="The portfolio is organized like a product architecture: intelligence, interface, and operational readiness working together." />
-          <div className="mt-14 grid gap-5 md:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
             {skillGroups.map((group) => {
               const Icon = group.icon;
               return (
@@ -421,12 +421,12 @@ function Home() {
           </div>
         </motion.section>
 
-        <motion.section id="systems" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-24">
+        <motion.section id="systems" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-16 md:py-20">
           <SectionHeader eyebrow="AI Systems" title="AI Systems I’ve Built" description="Each project is presented as a system module: what it accepts, how it reasons, and what it returns to the human using it." />
-          <div className="mt-16 space-y-8">
+          <div className="mt-10 space-y-6">
             {aiSystems.map((module, index) => <SystemModule key={module.name} module={module} index={index} />)}
           </div>
-          <motion.div variants={fadeIn} className="mt-16">
+          <motion.div variants={fadeIn} className="mt-12">
             <p className="mb-6 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
               <Workflow className="h-4 w-4 text-emerald-500" /> Product Systems
             </p>
@@ -436,9 +436,9 @@ function Home() {
           </motion.div>
         </motion.section>
 
-        <motion.section id="thinking" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-24">
+        <motion.section id="thinking" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-16 md:py-20">
           <SectionHeader eyebrow="How my systems think" title="From raw signal to usable decision." description="The differentiator is not just calling a model. It is designing the workflow around context, reasoning, risk, and human-readable outputs." />
-          <div className="mt-14 grid gap-4 lg:grid-cols-4">
+          <div className="mt-10 grid gap-4 lg:grid-cols-4">
             {thinkingFlow.map((step, index) => {
               const Icon = step.icon;
               return (
@@ -448,7 +448,7 @@ function Home() {
                     <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">{step.label}</span>
                     <Icon className={`h-5 w-5 ${step.color}`} />
                   </div>
-                  <h3 className="mt-8 text-xl font-semibold tracking-[-0.035em] text-slate-950">{step.title}</h3>
+                  <h3 className="mt-6 text-xl font-semibold tracking-[-0.035em] text-slate-950">{step.title}</h3>
                   <p className="mt-4 mb-4 text-sm leading-relaxed text-slate-600">{step.description}</p>
                 </motion.div>
               );
@@ -458,7 +458,7 @@ function Home() {
 
         <TechnicalProof />
 
-        <motion.section id="experience" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="grid gap-12 py-24 lg:grid-cols-[0.78fr_1fr]">
+        <motion.section id="experience" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="grid gap-10 py-16 md:py-20 lg:grid-cols-[0.78fr_1fr]">
           <SectionHeader eyebrow="Impact" title="Experience translated into product outcomes." description="The focus stays on visible improvement: clearer interfaces, faster workflows, cleaner assets, and practical AI adoption." />
           <motion.div variants={fadeIn} className="space-y-5">
             {experience.map((item) => (
@@ -489,7 +489,7 @@ function Home() {
           </motion.div>
         </motion.section>
 
-        <motion.section id="contact" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-24">
+        <motion.section id="contact" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-16 md:py-20">
           <div className="overflow-hidden rounded-2xl border border-white/30 bg-white/60 p-8 shadow-[0_18px_60px_rgba(15,23,42,0.06)] backdrop-blur-md md:p-12">
             <motion.div variants={fadeIn} className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-end">
               <div>
