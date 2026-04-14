@@ -196,7 +196,7 @@ function SectionHeader({ eyebrow, title, description }: SectionHeaderProps) {
 
 function FlowPill({ label, tone }: { label: string; tone: string }) {
   return (
-    <span className={`rounded-full border border-slate-200/80 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] ${tone}`}>
+    <span className={`rounded-full border border-white/40 bg-white/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] shadow-sm backdrop-blur-md ${tone}`}>
       {label}
     </span>
   );
@@ -208,19 +208,19 @@ function SystemModule({ module, index }: SystemModuleProps) {
   return (
     <motion.a
       variants={fadeIn}
-      whileHover={{ y: -7, scale: 1.012 }}
+      whileHover={{ y: -4, scale: 1.02 }}
       transition={{ duration: 0.45, ease: "easeInOut" }}
       href={module.href}
       target="_blank"
       rel="noreferrer"
-      className="group relative block overflow-hidden rounded-[2rem] border border-white/75 bg-white/72 p-6 shadow-[0_26px_90px_rgba(15,23,42,0.065)] backdrop-blur-2xl"
+      className="group relative block overflow-hidden rounded-2xl border border-white/30 bg-white/60 p-7 shadow-[0_18px_55px_rgba(15,23,42,0.06)] backdrop-blur-md transition-shadow duration-500 hover:shadow-[0_18px_60px_rgba(124,58,237,0.12)]"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/70 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-      <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-gradient-to-br from-sky-200/35 to-violet-200/25 blur-3xl transition-transform duration-700 group-hover:scale-125" />
+      <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-gradient-to-br from-sky-200/25 to-violet-200/20 blur-3xl transition-transform duration-700 group-hover:scale-110" />
       <div className="relative">
         <div className="flex items-start justify-between gap-6">
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/80 px-3 py-1 text-xs font-semibold text-slate-500 shadow-sm">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/60 px-3 py-1 text-xs font-semibold text-slate-500 shadow-sm backdrop-blur-md">
               <span className={`h-2 w-2 rounded-full ${isAiSystem ? "bg-violet-500" : "bg-emerald-500"}`} />
               {isAiSystem ? "AI System Module" : "Product System Module"}
             </div>
@@ -229,9 +229,9 @@ function SystemModule({ module, index }: SystemModuleProps) {
           <Github className="mt-2 h-5 w-5 shrink-0 text-slate-400 transition-colors duration-300 group-hover:text-sky-600" />
         </div>
 
-        <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600">{module.purpose}</p>
+        <p className="mt-6 mb-4 max-w-2xl text-sm leading-relaxed text-slate-600">{module.purpose}</p>
 
-        <div className="mt-7 grid gap-3 rounded-[1.4rem] border border-slate-200/70 bg-slate-50/70 p-4 text-sm md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
+        <div className="mt-7 grid gap-4 rounded-2xl border border-white/30 bg-white/50 p-4 text-sm shadow-sm backdrop-blur-md md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
           <div>
             <FlowPill label="Input" tone="text-sky-600" />
             <p className="mt-3 font-medium leading-6 text-slate-700">{module.input}</p>
@@ -250,14 +250,14 @@ function SystemModule({ module, index }: SystemModuleProps) {
 
         <div className="mt-6 flex flex-wrap gap-2">
           {module.capabilities.map((capability) => (
-            <span key={capability} className="rounded-full border border-slate-200/80 bg-white/80 px-3 py-1 text-xs font-medium text-slate-600">
+            <span key={capability} className="rounded-full border border-white/40 bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 shadow-sm backdrop-blur-md">
               {capability}
             </span>
           ))}
         </div>
 
-        <div className="mt-6 max-h-0 overflow-hidden border-t border-slate-200/0 pt-0 opacity-0 transition-all duration-500 group-hover:max-h-32 group-hover:border-slate-200/70 group-hover:pt-5 group-hover:opacity-100">
-          <p className="text-sm leading-7 text-slate-600">
+        <div className="mt-6 max-h-0 overflow-hidden border-t border-white/0 pt-0 opacity-0 transition-all duration-500 group-hover:max-h-32 group-hover:border-white/40 group-hover:pt-5 group-hover:opacity-100">
+          <p className="text-sm leading-relaxed text-slate-600">
             <span className="font-semibold text-slate-950">Deeper insight: </span>
             {module.insight}
           </p>
@@ -275,7 +275,7 @@ function TechnicalProof() {
         title="A workflow-first way to design agents."
         description="The logic behind these systems is intentionally inspectable: agent steps, risk review, confidence scoring, and human-readable outputs are all part of the interface."
       />
-      <motion.div variants={fadeIn} className="mt-12 overflow-hidden rounded-[2rem] border border-slate-900/10 bg-slate-950 shadow-[0_30px_100px_rgba(15,23,42,0.18)]">
+      <motion.div variants={fadeIn} className="mt-12 overflow-hidden rounded-2xl border border-white/30 bg-slate-950 shadow-[0_20px_65px_rgba(15,23,42,0.14)]">
         <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-slate-600" />
@@ -302,12 +302,13 @@ function TechnicalProof() {
 
 function Home() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-br from-[#F8FAFC] via-white to-[#ECFEFF] text-slate-950 selection:bg-slate-950 selection:text-white">
-      <div className="pointer-events-none fixed inset-0 -z-10 opacity-[0.035] [background-image:radial-gradient(#020617_0.7px,transparent_0.7px)] [background-size:18px_18px]" />
-      <div className="pointer-events-none fixed left-1/2 top-[-18rem] -z-10 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full bg-sky-200/35 blur-3xl" />
-      <div className="pointer-events-none fixed bottom-0 right-[-10rem] -z-10 h-[30rem] w-[30rem] rounded-full bg-violet-200/25 blur-3xl" />
+    <div className="relative min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_12%_8%,rgba(2,132,199,0.12),transparent_34%),radial-gradient(circle_at_54%_18%,rgba(236,254,255,0.95),transparent_34%),radial-gradient(circle_at_78%_40%,rgba(124,58,237,0.07),transparent_30%),linear-gradient(135deg,#ffffff_0%,#f8fafc_42%,#ecfeff_100%)] text-slate-950 selection:bg-slate-950 selection:text-white">
+      <div className="pointer-events-none fixed inset-0 -z-10 opacity-[0.045] [background-image:radial-gradient(#020617_0.6px,transparent_0.6px)] [background-size:16px_16px]" />
+      <div className="pointer-events-none fixed left-[-12rem] top-[-14rem] -z-10 h-[42rem] w-[42rem] rounded-full bg-sky-100/60 blur-3xl" />
+      <div className="pointer-events-none fixed left-1/2 top-[10rem] -z-10 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-cyan-50/90 blur-3xl" />
+      <div className="pointer-events-none fixed bottom-0 right-[-14rem] -z-10 h-[34rem] w-[34rem] rounded-full bg-blue-100/45 blur-3xl" />
 
-      <header className="fixed top-0 z-50 w-full border-b border-slate-200/60 bg-white/72 backdrop-blur-2xl">
+      <header className="fixed top-0 z-50 w-full border-b border-white/40 bg-white/60 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <a href="#top" className="text-sm font-semibold tracking-[-0.02em] text-slate-950 md:text-base">Aniket Pandey</a>
           <nav className="hidden items-center gap-8 text-sm font-medium text-slate-500 sm:flex">
@@ -320,8 +321,8 @@ function Home() {
       </header>
 
       <main id="top" className="mx-auto max-w-6xl px-6 pt-32 md:pt-40">
-        <motion.section initial="hidden" animate="visible" variants={staggerContainer} className="relative grid min-h-[82vh] items-center gap-14 py-10 lg:grid-cols-[0.92fr_0.9fr]">
-          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-[3rem]">
+        <motion.section initial="hidden" animate="visible" variants={staggerContainer} className="relative grid min-h-[82vh] items-center gap-16 py-24 lg:grid-cols-[0.92fr_0.9fr]">
+          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-2xl">
             {backgroundNodes.map((node) => (
               <motion.span
                 key={node.id}
@@ -334,30 +335,30 @@ function Home() {
           </div>
 
           <div>
-            <motion.p variants={fadeIn} className="inline-flex rounded-full border border-slate-200 bg-white/72 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600 shadow-sm backdrop-blur">
+            <motion.p variants={fadeIn} className="inline-flex rounded-full border border-white/30 bg-white/60 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600 shadow-sm backdrop-blur-md">
               GenAI Systems Developer | AI Product Builder (UI/UX Focused)
             </motion.p>
             <motion.p variants={fadeIn} className="mt-9 text-sm font-semibold uppercase tracking-[0.24em] text-sky-600">Aniket Pandey</motion.p>
-            <motion.h1 variants={fadeIn} className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.065em] text-slate-950 md:text-7xl lg:text-[5.55rem] lg:leading-[0.97]">
+            <motion.h1 variants={fadeIn} className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.055em] text-slate-950 md:text-6xl lg:text-7xl lg:leading-[0.98]">
               Building Intelligent Systems, Not Just Applications
             </motion.h1>
-            <motion.p variants={fadeIn} className="mt-8 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl md:leading-9">
+            <motion.p variants={fadeIn} className="mt-8 mb-4 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
               I design multi-agent AI workflows that move from messy inputs to structured decisions, usable outputs, and interfaces people can actually trust.
             </motion.p>
             <motion.div variants={fadeIn} className="mt-10 flex flex-wrap gap-4">
-              <motion.a whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }} href="#systems" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white shadow-[0_16px_40px_rgba(15,23,42,0.18)] transition-colors hover:bg-slate-800">
+              <motion.a whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.98 }} href="#systems" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white shadow-[0_14px_36px_rgba(15,23,42,0.16)] transition-all hover:bg-slate-800 hover:shadow-[0_16px_42px_rgba(124,58,237,0.14)]">
                 Explore Systems <ArrowRight className="h-4 w-4" />
               </motion.a>
-              <motion.a whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }} href="#contact" className="inline-flex h-12 items-center justify-center rounded-full border border-slate-200 bg-white/75 px-7 text-sm font-semibold text-slate-950 shadow-sm backdrop-blur transition-colors hover:bg-white">
+              <motion.a whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.98 }} href="#contact" className="inline-flex h-12 items-center justify-center rounded-full border border-white/30 bg-white/60 px-7 text-sm font-semibold text-slate-950 shadow-sm backdrop-blur-md transition-all hover:bg-white/80 hover:shadow-[0_12px_34px_rgba(124,58,237,0.10)]">
                 Contact Me
               </motion.a>
             </motion.div>
           </div>
 
           <motion.div variants={fadeIn} className="relative mx-auto w-full max-w-[34rem]">
-            <div className="absolute -inset-7 rounded-[2.5rem] bg-gradient-to-br from-sky-200/45 via-white to-violet-200/30 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[2.15rem] border border-white/75 bg-white/78 p-5 shadow-[0_30px_100px_rgba(15,23,42,0.12)] backdrop-blur-2xl">
-              <div className="mb-5 flex items-center justify-between rounded-[1.35rem] border border-slate-200/70 bg-slate-50/75 px-4 py-3">
+            <div className="absolute -inset-7 rounded-[2.5rem] bg-gradient-to-br from-sky-200/25 via-white to-violet-200/20 blur-2xl" />
+            <div className="relative overflow-hidden rounded-2xl border border-white/30 bg-white/60 p-5 shadow-[0_22px_70px_rgba(15,23,42,0.075)] backdrop-blur-md">
+              <div className="mb-5 flex items-center justify-between rounded-2xl border border-white/30 bg-white/55 px-4 py-3 shadow-sm backdrop-blur-md">
                 <div className="flex items-center gap-3">
                   <span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-white"><CircuitBoard className="h-4 w-4" /></span>
                   <div>
@@ -365,30 +366,30 @@ function Home() {
                     <p className="text-xs text-slate-500">Intent to decision pipeline</p>
                   </div>
                 </div>
-                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-600">Online</span>
+                <span className="rounded-full bg-emerald-50/80 px-3 py-1 text-xs font-semibold text-emerald-600">Online</span>
               </div>
 
-              <div className="relative min-h-[24rem] rounded-[1.5rem] border border-slate-200/70 bg-gradient-to-br from-white to-slate-50/90 p-6">
+              <div className="relative min-h-[24rem] rounded-2xl border border-white/30 bg-gradient-to-br from-white/80 to-slate-50/70 p-6 shadow-sm backdrop-blur-md">
                 <svg className="absolute inset-0 h-full w-full" viewBox="0 0 420 320" fill="none" aria-hidden="true">
                   <path d="M78 70 C145 20 235 26 304 76" stroke="rgba(14,165,233,0.24)" strokeWidth="1.5" />
                   <path d="M80 250 C160 304 274 284 338 208" stroke="rgba(34,197,94,0.24)" strokeWidth="1.5" />
                   <path d="M92 164 C160 96 258 110 326 168" stroke="rgba(139,92,246,0.22)" strokeWidth="1.5" />
                 </svg>
 
-                <motion.div variants={systemPulse} animate="animate" className="absolute left-8 top-10 h-24 w-24 rounded-full border border-sky-200 bg-sky-50/80 p-4 shadow-[0_18px_50px_rgba(14,165,233,0.12)]">
+                <motion.div variants={systemPulse} animate="animate" className="absolute left-8 top-10 h-24 w-24 rounded-full border border-sky-200/70 bg-sky-50/85 p-4 shadow-[0_12px_36px_rgba(14,165,233,0.10)] backdrop-blur-md">
                   <p className="text-xs font-semibold text-sky-700">Input</p>
-                  <p className="mt-2 text-[11px] leading-4 text-slate-500">Resume, request, context</p>
+                  <p className="mt-2 text-[11px] leading-4 text-slate-600">Resume, request, context</p>
                 </motion.div>
-                <motion.div variants={systemPulse} animate="animate" transition={{ delay: 0.45 }} className="absolute right-9 top-14 h-28 w-28 rounded-full border border-violet-200 bg-violet-50/80 p-4 shadow-[0_18px_50px_rgba(139,92,246,0.12)]">
+                <motion.div variants={systemPulse} animate="animate" transition={{ delay: 0.45 }} className="absolute right-9 top-14 h-28 w-28 rounded-full border border-violet-200/70 bg-violet-50/85 p-4 shadow-[0_12px_36px_rgba(124,58,237,0.10)] backdrop-blur-md">
                   <p className="text-xs font-semibold text-violet-700">AI Layer</p>
-                  <p className="mt-2 text-[11px] leading-4 text-slate-500">Agents, memory, planning</p>
+                  <p className="mt-2 text-[11px] leading-4 text-slate-600">Agents, memory, planning</p>
                 </motion.div>
-                <motion.div variants={systemPulse} animate="animate" transition={{ delay: 0.9 }} className="absolute bottom-10 left-1/2 h-28 w-28 -translate-x-1/2 rounded-full border border-emerald-200 bg-emerald-50/80 p-4 shadow-[0_18px_50px_rgba(34,197,94,0.12)]">
+                <motion.div variants={systemPulse} animate="animate" transition={{ delay: 0.9 }} className="absolute bottom-10 left-1/2 h-28 w-28 -translate-x-1/2 rounded-full border border-emerald-200/70 bg-emerald-50/85 p-4 shadow-[0_12px_36px_rgba(34,197,94,0.10)] backdrop-blur-md">
                   <p className="text-xs font-semibold text-emerald-700">Output</p>
-                  <p className="mt-2 text-[11px] leading-4 text-slate-500">Clear decision and next step</p>
+                  <p className="mt-2 text-[11px] leading-4 text-slate-600">Clear decision and next step</p>
                 </motion.div>
 
-                <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[2rem] border border-slate-200 bg-white/90 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur">
+                <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl border border-white/40 bg-white/70 shadow-[0_14px_42px_rgba(15,23,42,0.06)] backdrop-blur-md">
                   <Sparkles className="h-6 w-6 text-violet-500" />
                 </div>
               </div>
@@ -402,14 +403,14 @@ function Home() {
             {skillGroups.map((group) => {
               const Icon = group.icon;
               return (
-                <motion.div key={group.title} variants={fadeIn} whileHover={{ y: -5, scale: 1.02 }} transition={{ duration: 0.45, ease: "easeInOut" }} className="group rounded-[1.75rem] border border-white/75 bg-white/70 p-6 shadow-[0_20px_70px_rgba(15,23,42,0.055)] backdrop-blur-xl hover:shadow-[0_28px_80px_rgba(139,92,246,0.10)]">
+                <motion.div key={group.title} variants={fadeIn} whileHover={{ y: -4, scale: 1.02 }} transition={{ duration: 0.45, ease: "easeInOut" }} className="group rounded-2xl border border-white/30 bg-white/60 p-6 shadow-[0_18px_55px_rgba(15,23,42,0.055)] backdrop-blur-md transition-shadow duration-500 hover:shadow-[0_18px_60px_rgba(124,58,237,0.12)]">
                   <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-lg">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="text-lg font-semibold tracking-[-0.03em] text-slate-950">{group.title}</h3>
                   <div className="mt-5 grid gap-2">
                     {group.skills.map((skill) => (
-                      <div key={skill} className={`rounded-2xl border border-slate-200/70 bg-white/70 px-4 py-3 text-sm font-medium text-slate-600 transition-colors group-hover:${group.tone}`}>
+                      <div key={skill} className="rounded-2xl border border-white/30 bg-white/55 px-4 py-3 text-sm font-medium text-slate-600 shadow-sm backdrop-blur-md transition-colors group-hover:text-slate-950">
                         {skill}
                       </div>
                     ))}
@@ -441,14 +442,14 @@ function Home() {
             {thinkingFlow.map((step, index) => {
               const Icon = step.icon;
               return (
-                <motion.div key={step.label} variants={fadeIn} whileHover={{ y: -6 }} transition={{ duration: 0.45, ease: "easeInOut" }} className="relative rounded-[1.75rem] border border-white/75 bg-white/72 p-6 shadow-[0_22px_70px_rgba(15,23,42,0.055)] backdrop-blur-2xl">
+                <motion.div key={step.label} variants={fadeIn} whileHover={{ y: -4, scale: 1.02 }} transition={{ duration: 0.45, ease: "easeInOut" }} className="relative rounded-2xl border border-white/30 bg-white/60 p-6 shadow-[0_18px_55px_rgba(15,23,42,0.055)] backdrop-blur-md transition-shadow duration-500 hover:shadow-[0_18px_60px_rgba(124,58,237,0.10)]">
                   {index < thinkingFlow.length - 1 && <div className="absolute right-[-1.15rem] top-1/2 z-10 hidden h-px w-8 bg-gradient-to-r from-slate-200 to-transparent lg:block" />}
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">{step.label}</span>
                     <Icon className={`h-5 w-5 ${step.color}`} />
                   </div>
                   <h3 className="mt-8 text-xl font-semibold tracking-[-0.035em] text-slate-950">{step.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">{step.description}</p>
+                  <p className="mt-4 mb-4 text-sm leading-relaxed text-slate-600">{step.description}</p>
                 </motion.div>
               );
             })}
@@ -461,7 +462,7 @@ function Home() {
           <SectionHeader eyebrow="Impact" title="Experience translated into product outcomes." description="The focus stays on visible improvement: clearer interfaces, faster workflows, cleaner assets, and practical AI adoption." />
           <motion.div variants={fadeIn} className="space-y-5">
             {experience.map((item) => (
-              <motion.div key={item.role} whileHover={{ x: 4 }} transition={{ duration: 0.4, ease: "easeInOut" }} className="rounded-[1.5rem] border border-white/75 bg-white/72 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.045)] backdrop-blur-xl">
+              <motion.div key={item.role} whileHover={{ y: -4, scale: 1.01 }} transition={{ duration: 0.4, ease: "easeInOut" }} className="rounded-2xl border border-white/30 bg-white/60 p-6 shadow-[0_18px_55px_rgba(15,23,42,0.05)] backdrop-blur-md transition-shadow duration-500 hover:shadow-[0_18px_60px_rgba(124,58,237,0.10)]">
                 <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
                   <div>
                     <h3 className="text-lg font-semibold tracking-[-0.03em] text-slate-950">{item.role}</h3>
@@ -469,16 +470,16 @@ function Home() {
                   </div>
                   <p className="text-sm font-medium text-slate-400">{item.period}</p>
                 </div>
-                <p className="mt-5 text-sm leading-7 text-slate-600">{item.outcome}</p>
+                <p className="mt-5 mb-4 text-sm leading-relaxed text-slate-600">{item.outcome}</p>
               </motion.div>
             ))}
             <div className="grid gap-5 sm:grid-cols-2">
-              <div className="rounded-[1.5rem] border border-white/75 bg-white/72 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.045)] backdrop-blur-xl">
+              <div className="rounded-2xl border border-white/30 bg-white/60 p-6 shadow-[0_18px_55px_rgba(15,23,42,0.05)] backdrop-blur-md">
                 <ShieldCheck className="h-5 w-5 text-emerald-500" />
                 <h3 className="mt-4 text-lg font-semibold tracking-[-0.03em] text-slate-950">B.Tech Computer Engineering</h3>
-                <p className="mt-2 text-sm leading-7 text-slate-600">RK University, Rajkot. Expected May 2026. CGPA 8.40/10.</p>
+                <p className="mt-2 mb-4 text-sm leading-relaxed text-slate-600">RK University, Rajkot. Expected May 2026. CGPA 8.40/10.</p>
               </div>
-              <div className="rounded-[1.5rem] border border-white/75 bg-white/72 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.045)] backdrop-blur-xl">
+              <div className="rounded-2xl border border-white/30 bg-white/60 p-6 shadow-[0_18px_55px_rgba(15,23,42,0.05)] backdrop-blur-md">
                 <h3 className="text-lg font-semibold tracking-[-0.03em] text-slate-950">Learning Signals</h3>
                 <div className="mt-4 space-y-2 text-sm leading-6 text-slate-600">
                   {certifications.map((cert) => <p key={cert}>{cert}</p>)}
@@ -489,20 +490,20 @@ function Home() {
         </motion.section>
 
         <motion.section id="contact" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-24">
-          <div className="overflow-hidden rounded-[2.25rem] border border-white/75 bg-white/78 p-8 shadow-[0_30px_100px_rgba(15,23,42,0.08)] backdrop-blur-2xl md:p-12">
+          <div className="overflow-hidden rounded-2xl border border-white/30 bg-white/60 p-8 shadow-[0_18px_60px_rgba(15,23,42,0.06)] backdrop-blur-md md:p-12">
             <motion.div variants={fadeIn} className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-end">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-600">Contact</p>
                 <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">Let’s discuss AI systems, product prototypes, and usable automation.</h2>
               </div>
               <div className="grid gap-3">
-                <a href="mailto:aniketpandey4723k@gmail.com" className="flex items-center gap-3 rounded-2xl border border-slate-200/70 bg-white/70 px-5 py-4 text-sm font-semibold text-slate-700 transition-colors hover:text-sky-600">
+                <a href="mailto:aniketpandey4723k@gmail.com" className="flex items-center gap-3 rounded-2xl border border-white/30 bg-white/55 px-5 py-4 text-sm font-semibold text-slate-700 shadow-sm backdrop-blur-md transition-all hover:text-sky-600 hover:shadow-[0_12px_34px_rgba(124,58,237,0.10)]">
                   <Mail className="h-5 w-5" /> aniketpandey4723k@gmail.com
                 </a>
-                <a href="https://www.linkedin.com/in/aniket-pandey-1b3a59291" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-2xl border border-slate-200/70 bg-white/70 px-5 py-4 text-sm font-semibold text-slate-700 transition-colors hover:text-sky-600">
+                <a href="https://www.linkedin.com/in/aniket-pandey-1b3a59291" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-2xl border border-white/30 bg-white/55 px-5 py-4 text-sm font-semibold text-slate-700 shadow-sm backdrop-blur-md transition-all hover:text-sky-600 hover:shadow-[0_12px_34px_rgba(124,58,237,0.10)]">
                   <Linkedin className="h-5 w-5" /> LinkedIn
                 </a>
-                <a href="https://github.com/Aniket28-4L" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-2xl border border-slate-200/70 bg-white/70 px-5 py-4 text-sm font-semibold text-slate-700 transition-colors hover:text-sky-600">
+                <a href="https://github.com/Aniket28-4L" target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-2xl border border-white/30 bg-white/55 px-5 py-4 text-sm font-semibold text-slate-700 shadow-sm backdrop-blur-md transition-all hover:text-sky-600 hover:shadow-[0_12px_34px_rgba(124,58,237,0.10)]">
                   <Github className="h-5 w-5" /> GitHub
                 </a>
               </div>
@@ -511,7 +512,7 @@ function Home() {
         </motion.section>
       </main>
 
-      <footer className="border-t border-slate-200/60 bg-white/50 py-10 backdrop-blur-xl">
+      <footer className="border-t border-white/40 bg-white/45 py-10 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl flex-col justify-between gap-4 px-6 text-sm text-slate-500 md:flex-row">
           <p className="font-semibold text-slate-950">Aniket Pandey</p>
           <p>GenAI Systems Developer | AI Product Builder</p>
@@ -526,13 +527,13 @@ function Home() {
               target="_blank"
               rel="noreferrer"
               aria-label="Chat on WhatsApp"
-              className="fixed bottom-6 right-6 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-sky-500 to-emerald-500 text-white shadow-[0_18px_45px_rgba(14,165,233,0.34)] outline-none ring-1 ring-white/50 md:bottom-8 md:right-8"
-              animate={{ scale: [1, 1.06, 1], boxShadow: ["0 18px 45px rgba(14,165,233,0.28)", "0 20px 58px rgba(34,197,94,0.36)", "0 18px 45px rgba(14,165,233,0.28)"] }}
-              transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-              whileHover={{ scale: 1.08 }}
+              className="fixed bottom-6 right-6 z-[60] flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-sky-500 to-emerald-500 text-white shadow-[0_14px_34px_rgba(14,165,233,0.28)] outline-none ring-1 ring-white/50"
+              animate={{ scale: [1, 1.045, 1], boxShadow: ["0 14px 34px rgba(14,165,233,0.22)", "0 16px 42px rgba(34,197,94,0.30)", "0 14px 34px rgba(14,165,233,0.22)"] }}
+              transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ scale: 1.08, y: -2 }}
               whileTap={{ scale: 0.96 }}
             >
-              <MessageCircle className="h-6 w-6" />
+              <MessageCircle className="h-5 w-5" />
             </motion.a>
           </TooltipTrigger>
           <TooltipContent side="left" className="mr-2 border-slate-200 bg-white text-slate-700 shadow-xl">

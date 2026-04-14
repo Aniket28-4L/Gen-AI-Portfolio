@@ -1,0 +1,174 @@
+Act as a senior product designer and frontend engineer. You are improving an EXISTING React + Tailwind portfolio.
+
+Your task is to UPGRADE the current UI to a TOP 1% level — similar to Apple, Stripe, or Linear.
+
+DO NOT rebuild from scratch.
+DO NOT change content structure drastically.
+FOCUS on visual quality, spacing, hierarchy, and interaction refinement.
+
+--------------------------------------------------
+🎯 GOAL
+--------------------------------------------------
+
+Make the interface feel:
+- Minimal
+- Intelligent
+- Premium
+- Product-level (not a resume)
+
+Every section should feel intentional and refined.
+
+--------------------------------------------------
+🎨 1. BACKGROUND (FIX THIS FIRST)
+--------------------------------------------------
+
+Replace flat backgrounds with a layered gradient:
+
+- Base: soft white → light cyan → light blue
+- Add subtle radial highlights (top-left / center)
+- Add very light grain/noise texture
+
+This should create DEPTH without being distracting.
+
+--------------------------------------------------
+🧱 2. CARDS → GLASSMORPHISM (CRITICAL FIX)
+--------------------------------------------------
+
+Update ALL cards (projects, skills, sections):
+
+- bg-white/60
+- backdrop-blur-md
+- border border-white/30
+- rounded-2xl
+
+Add:
+- soft shadow (not heavy)
+- hover: slight lift (translateY -4px)
+- hover: subtle violet glow
+
+REMOVE:
+- flat solid cards
+- heavy borders
+- dark shadows
+
+--------------------------------------------------
+📏 3. SPACING & LAYOUT (APPLE-LEVEL)
+--------------------------------------------------
+
+Fix spacing strictly:
+
+- Section padding: py-24
+- Container max width: max-w-6xl or max-w-7xl
+- Consistent vertical rhythm (no uneven gaps)
+
+Text spacing:
+- Heading → mb-6
+- Paragraph → mb-4
+
+Increase whitespace everywhere.
+Nothing should feel cramped.
+
+--------------------------------------------------
+🔤 4. TYPOGRAPHY (MAJOR UPGRADE)
+--------------------------------------------------
+
+Apply clear hierarchy:
+
+- H1: very large, bold (text-5xl or text-6xl)
+- H2: text-3xl or text-4xl
+- Body: text-gray-600 / text-slate-600
+
+Improve readability:
+- max-w-2xl for text blocks
+- proper line height (leading-relaxed)
+
+REMOVE:
+- dense paragraphs
+- inconsistent font sizes
+
+--------------------------------------------------
+🎨 5. COLOR SYSTEM (INTENTIONAL USAGE)
+--------------------------------------------------
+
+Use colors with meaning:
+
+- Blue (#0284C7) → system actions
+- Green (#22C55E) → outputs/results
+- Violet (#7C3AED) → AI intelligence (use sparingly)
+
+DO NOT use all colors everywhere.
+
+Add hover effect:
+- violet glow (very subtle)
+
+--------------------------------------------------
+⚡ 6. INTERACTIONS (THIS MAKES IT FEEL AI)
+--------------------------------------------------
+
+Add subtle but meaningful interactions:
+
+- Cards: scale (1.02–1.04) + lift on hover
+- Buttons: smooth hover + slight glow
+- Section reveal: fade + slide up
+
+Animations must be:
+- smooth
+- fast
+- subtle (no flashy effects)
+
+--------------------------------------------------
+🧠 7. PROJECTS → SYSTEM FEEL (IMPORTANT)
+--------------------------------------------------
+
+Upgrade project cards:
+
+Instead of generic layout:
+- Add structure:
+
+  SYSTEM NAME  
+  → Purpose  
+  → Input → Process → Output  
+
+Use visual separation for each part.
+
+Make it feel like:
+“this is a working AI system”
+
+--------------------------------------------------
+📱 8. WHATSAPP BUTTON (REFINE UI)
+--------------------------------------------------
+
+Keep existing functionality but improve design:
+
+- Smaller size (not bulky)
+- Clean circular button
+- Soft shadow
+- Subtle pulse animation
+- Smooth hover scale
+
+Position:
+- bottom-6 right-6
+
+--------------------------------------------------
+🚫 REMOVE THESE (IMPORTANT)
+--------------------------------------------------
+
+- Flat UI
+- Overuse of colors
+- Large heavy shadows
+- Dense text blocks
+- Generic “card grid” feel
+
+--------------------------------------------------
+🏁 FINAL CHECK
+--------------------------------------------------
+
+Before finishing, ensure:
+
+- UI feels calm and premium
+- Spacing is consistent
+- Nothing looks generic
+- Animations are smooth and subtle
+
+The final result should feel like:
+“A founder-level AI product interface designed with Apple-level discipline.”
