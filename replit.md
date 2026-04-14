@@ -4,7 +4,7 @@
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
-Current primary artifact is a frontend-only React/Vite portfolio website for Aniket Pandey, built as a premium single-page personal brand site focused on GenAI systems, AI product building, projects, experience, technical proof, and contact conversion.
+Current primary artifact is a frontend-only React/Vite portfolio website for Aniket Pandey, built as a premium single-page personal AI lab and system showcase focused on GenAI systems, product modules, AI workflow thinking, experience impact, technical proof, and contact conversion.
 
 ## Stack
 

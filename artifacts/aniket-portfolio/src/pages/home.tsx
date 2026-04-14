@@ -1,16 +1,21 @@
-import React from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
   Brain,
+  CheckCircle2,
+  ChevronRight,
+  CircuitBoard,
   Cloud,
   Code2,
+  DatabaseZap,
   Github,
   Linkedin,
   Mail,
   MessageCircle,
   Network,
+  ScanSearch,
   ShieldCheck,
+  Sparkles,
   Workflow,
 } from "lucide-react";
 import {
@@ -33,55 +38,109 @@ const staggerContainer = {
   },
 };
 
+const systemPulse = {
+  animate: {
+    opacity: [0.28, 0.62, 0.28],
+    scale: [1, 1.08, 1],
+    transition: { duration: 4.2, repeat: Infinity, ease: "easeInOut" },
+  },
+};
+
 const skillGroups = [
   {
-    title: "GenAI & Intelligent Systems",
+    title: "GenAI Layer",
     icon: Brain,
-    skills: ["LLMs", "Prompt Engineering", "Multi-Agent AI Systems", "AI Pipelines"],
+    tone: "text-violet-600",
+    skills: ["LLMs", "Prompt Engineering", "Multi-Agent Systems", "AI Pipelines"],
   },
   {
-    title: "Development",
+    title: "Product Layer",
     icon: Code2,
+    tone: "text-sky-600",
     skills: ["JavaScript", "Node.js", "Express", "MongoDB", "Angular", "Java"],
   },
   {
-    title: "DevOps & Cloud",
+    title: "Operations Layer",
     icon: Cloud,
+    tone: "text-emerald-600",
     skills: ["Docker", "GitHub Actions", "Jenkins", "Kubernetes", "AWS Basics", "Linux"],
   },
 ];
 
-const genAiProjects = [
+const aiSystems = [
   {
-    title: "AI Recruiter Intelligence System",
+    name: "AI Recruiter Intelligence System",
     href: "https://github.com/Aniket28-4L/AI-Recruiter-Intelligence-System-GenAI-SaaS-",
-    description:
-      "A recruiter-facing AI workflow that parses resumes, evaluates candidate fit, detects risk signals, and generates interview-ready questions through structured LLM outputs.",
-    stack: ["LLMs", "Prompt Engineering", "JSON Outputs", "Decision Workflow"],
+    purpose: "Turns unstructured candidate data into recruiter-ready hiring intelligence.",
+    input: "Resume + role criteria",
+    process: "LLM parsing, fit scoring, risk analysis, interview planning",
+    output: "Structured match signals, flags, and questions",
+    capabilities: ["LLM Parsing", "Decision Support", "Risk Detection", "JSON Outputs"],
+    insight: "Built as a multi-step review loop so recruiters can inspect the reasoning instead of trusting a black box.",
   },
   {
-    title: "AI Ops Copilot",
+    name: "AI Ops Copilot",
     href: "https://github.com/Aniket28-4L/AI-Ops-Copilot",
-    description:
-      "A multi-agent business automation prototype that moves from intent detection to planning, memory-aware execution, email drafting, task creation, and operational risk review.",
-    stack: ["Multi-Agent AI", "React", "Node.js", "Context Memory"],
+    purpose: "Coordinates operational work from user intent to action-ready execution plans.",
+    input: "Business request + user context",
+    process: "Intent detection, planning, memory, specialized agents",
+    output: "Drafted emails, task plans, risks, and next actions",
+    capabilities: ["Multi-Agent Flow", "Context Memory", "Task Planning", "React + Node"],
+    insight: "Designed around continuity: agents keep context across sessions so daily business workflows feel less fragmented.",
   },
 ];
 
-const otherProjects = [
+const productSystems = [
   {
-    title: "Clinic-ERP",
+    name: "Clinic-ERP",
     href: "https://github.com/Aniket28-4L/Clinic-ERP",
-    description:
-      "A role-based clinic operations system designed around patient, staff, and workflow clarity, with structured APIs, data models, Docker setup, and CI/CD readiness.",
-    stack: ["Node.js", "Express", "MongoDB", "Docker", "CI/CD"],
+    purpose: "A role-based operating system for clinic teams, patients, and staff workflows.",
+    input: "Clinic users + operational data",
+    process: "Structured APIs, entity models, role-based interface flows",
+    output: "Clear operational visibility and smoother clinic coordination",
+    capabilities: ["Node.js", "Express", "MongoDB", "Docker", "CI/CD"],
+    insight: "Built with a shipping mindset: data models, workflow clarity, containerization, and automation all support reliable handoff.",
   },
   {
-    title: "Inventory Management System",
+    name: "Inventory Management System",
     href: "https://github.com/Aniket28-4L/InventoryManagement",
-    description:
-      "A responsive inventory platform with structured dashboards, role-based workflows, fast operational visibility, and AI-assisted interface prototyping.",
-    stack: ["Angular", "Node.js", "Express", "MongoDB", "GitHub Actions"],
+    purpose: "Gives teams a responsive view of inventory, dashboards, and role-based actions.",
+    input: "Inventory records + operational roles",
+    process: "Dashboard modeling, access flows, AI-assisted UI prototyping",
+    output: "Faster task completion and clearer data visibility",
+    capabilities: ["Angular", "Node.js", "Express", "MongoDB", "GitHub Actions"],
+    insight: "Used generative AI in the design loop to test flows faster before turning them into production-facing interfaces.",
+  },
+];
+
+const thinkingFlow = [
+  {
+    label: "Input",
+    title: "Understand the signal",
+    description: "Collect resumes, requests, context, or workflow data and normalize it for AI reasoning.",
+    color: "text-sky-600",
+    icon: ScanSearch,
+  },
+  {
+    label: "AI Processing",
+    title: "Route through agents",
+    description: "Break the problem into specialized steps: parsing, planning, scoring, memory, and risk review.",
+    color: "text-violet-600",
+    icon: Network,
+  },
+  {
+    label: "Decision",
+    title: "Make reasoning inspectable",
+    description: "Convert model responses into structured outputs humans can evaluate quickly and confidently.",
+    color: "text-emerald-600",
+    icon: CheckCircle2,
+  },
+  {
+    label: "Output",
+    title: "Deliver usable action",
+    description: "Return interview questions, task drafts, operational insights, or interface-ready recommendations.",
+    color: "text-amber-600",
+    icon: DatabaseZap,
   },
 ];
 
@@ -90,15 +149,13 @@ const experience = [
     role: "Freelance Web Developer",
     org: "Remote / Self-Employed",
     period: "Nov 2025 - Jan 2026",
-    impact:
-      "Translated client needs into responsive web interfaces with clear UI structure, mobile-first execution, and usability-focused refinement cycles.",
+    outcome: "Delivered responsive client interfaces with tighter feedback loops, clearer UI structure, and mobile-ready implementation.",
   },
   {
     role: "Associate Trainee Intern",
     org: "AdmitWorks",
     period: "Jul 2025 - Nov 2025",
-    impact:
-      "Improved digital asset workflows with AI-assisted content creation, clearer visual systems, and practical team adoption of AI tools for repeated delivery tasks.",
+    outcome: "Moved repeated content and design tasks toward AI-supported execution, improving visual clarity and turnaround speed.",
   },
 ];
 
@@ -109,40 +166,137 @@ const certifications = [
   "Decoding DevOps",
 ];
 
-function SectionHeader({ eyebrow, title, description }: { eyebrow: string; title: string; description: string }) {
+const backgroundNodes = Array.from({ length: 18 }, (_, index) => ({
+  id: index,
+  left: `${8 + ((index * 17) % 86)}%`,
+  top: `${14 + ((index * 23) % 72)}%`,
+  delay: index * 0.22,
+}));
+
+type SectionHeaderProps = {
+  eyebrow: string;
+  title: string;
+  description: string;
+};
+
+type SystemModuleProps = {
+  module: (typeof aiSystems)[number];
+  index: number;
+};
+
+function SectionHeader({ eyebrow, title, description }: SectionHeaderProps) {
   return (
-    <motion.div variants={fadeIn} className="max-w-2xl">
-      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-600">{eyebrow}</p>
-      <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950 md:text-5xl">{title}</h2>
+    <motion.div variants={fadeIn} className="max-w-3xl">
+      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600">{eyebrow}</p>
+      <h2 className="mt-4 text-3xl font-semibold tracking-[-0.045em] text-slate-950 md:text-5xl">{title}</h2>
       <p className="mt-5 text-base leading-8 text-slate-600 md:text-lg">{description}</p>
     </motion.div>
   );
 }
 
-function ProjectCard({ project }: { project: (typeof genAiProjects)[number] }) {
+function FlowPill({ label, tone }: { label: string; tone: string }) {
+  return (
+    <span className={`rounded-full border border-slate-200/80 bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] ${tone}`}>
+      {label}
+    </span>
+  );
+}
+
+function SystemModule({ module, index }: SystemModuleProps) {
+  const isAiSystem = index < 2;
+
   return (
     <motion.a
       variants={fadeIn}
-      whileHover={{ y: -6, scale: 1.02 }}
+      whileHover={{ y: -7, scale: 1.012 }}
       transition={{ duration: 0.45, ease: "easeInOut" }}
-      href={project.href}
+      href={module.href}
       target="_blank"
       rel="noreferrer"
-      className="group block rounded-[1.75rem] border border-white/70 bg-white/70 p-7 shadow-[0_24px_80px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-shadow hover:shadow-[0_28px_90px_rgba(14,165,233,0.14)]"
+      className="group relative block overflow-hidden rounded-[2rem] border border-white/75 bg-white/72 p-6 shadow-[0_26px_90px_rgba(15,23,42,0.065)] backdrop-blur-2xl"
     >
-      <div className="flex items-start justify-between gap-6">
-        <h3 className="text-xl font-semibold tracking-[-0.03em] text-slate-950">{project.title}</h3>
-        <Github className="mt-1 h-5 w-5 shrink-0 text-slate-400 transition-colors group-hover:text-sky-600" />
-      </div>
-      <p className="mt-5 text-sm leading-7 text-slate-600">{project.description}</p>
-      <div className="mt-7 flex flex-wrap gap-2">
-        {project.stack.map((tag) => (
-          <span key={tag} className="rounded-full border border-slate-200/80 bg-white/70 px-3 py-1 text-xs font-medium text-slate-600">
-            {tag}
-          </span>
-        ))}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/70 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-gradient-to-br from-sky-200/35 to-violet-200/25 blur-3xl transition-transform duration-700 group-hover:scale-125" />
+      <div className="relative">
+        <div className="flex items-start justify-between gap-6">
+          <div>
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/80 px-3 py-1 text-xs font-semibold text-slate-500 shadow-sm">
+              <span className={`h-2 w-2 rounded-full ${isAiSystem ? "bg-violet-500" : "bg-emerald-500"}`} />
+              {isAiSystem ? "AI System Module" : "Product System Module"}
+            </div>
+            <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">{module.name}</h3>
+          </div>
+          <Github className="mt-2 h-5 w-5 shrink-0 text-slate-400 transition-colors duration-300 group-hover:text-sky-600" />
+        </div>
+
+        <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600">{module.purpose}</p>
+
+        <div className="mt-7 grid gap-3 rounded-[1.4rem] border border-slate-200/70 bg-slate-50/70 p-4 text-sm md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
+          <div>
+            <FlowPill label="Input" tone="text-sky-600" />
+            <p className="mt-3 font-medium leading-6 text-slate-700">{module.input}</p>
+          </div>
+          <ChevronRight className="hidden h-4 w-4 text-slate-300 md:block" />
+          <div>
+            <FlowPill label="Process" tone="text-violet-600" />
+            <p className="mt-3 font-medium leading-6 text-slate-700">{module.process}</p>
+          </div>
+          <ChevronRight className="hidden h-4 w-4 text-slate-300 md:block" />
+          <div>
+            <FlowPill label="Output" tone="text-emerald-600" />
+            <p className="mt-3 font-medium leading-6 text-slate-700">{module.output}</p>
+          </div>
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          {module.capabilities.map((capability) => (
+            <span key={capability} className="rounded-full border border-slate-200/80 bg-white/80 px-3 py-1 text-xs font-medium text-slate-600">
+              {capability}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-6 max-h-0 overflow-hidden border-t border-slate-200/0 pt-0 opacity-0 transition-all duration-500 group-hover:max-h-32 group-hover:border-slate-200/70 group-hover:pt-5 group-hover:opacity-100">
+          <p className="text-sm leading-7 text-slate-600">
+            <span className="font-semibold text-slate-950">Deeper insight: </span>
+            {module.insight}
+          </p>
+        </div>
       </div>
     </motion.a>
+  );
+}
+
+function TechnicalProof() {
+  return (
+    <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-24">
+      <SectionHeader
+        eyebrow="Technical proof"
+        title="A workflow-first way to design agents."
+        description="The logic behind these systems is intentionally inspectable: agent steps, risk review, confidence scoring, and human-readable outputs are all part of the interface."
+      />
+      <motion.div variants={fadeIn} className="mt-12 overflow-hidden rounded-[2rem] border border-slate-900/10 bg-slate-950 shadow-[0_30px_100px_rgba(15,23,42,0.18)]">
+        <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+          <div className="flex items-center gap-2">
+            <span className="h-2.5 w-2.5 rounded-full bg-slate-600" />
+            <span className="h-2.5 w-2.5 rounded-full bg-slate-600" />
+            <span className="h-2.5 w-2.5 rounded-full bg-slate-600" />
+          </div>
+          <p className="font-mono text-xs text-slate-500">agent-workflow.ts</p>
+        </div>
+        <div className="overflow-x-auto p-6 font-mono text-[13px] leading-7 text-slate-300 md:p-8 md:text-sm">
+          <p><span className="text-sky-300">type</span> Signal = Resume | Request | WorkflowContext;</p>
+          <p className="mt-4"><span className="text-violet-300">export async function</span> <span className="text-amber-200">runDecisionSystem</span>(signal: Signal) {'{'}</p>
+          <p className="pl-4"><span className="text-sky-300">const</span> intent = <span className="text-violet-300">await</span> agents.intent.detect(signal);</p>
+          <p className="pl-4"><span className="text-sky-300">const</span> context = <span className="text-violet-300">await</span> memory.retrieve(intent.userId);</p>
+          <p className="pl-4"><span className="text-sky-300">const</span> plan = <span className="text-violet-300">await</span> agents.planner.sequence(intent, context);</p>
+          <p className="pl-4"><span className="text-sky-300">const</span> risk = <span className="text-violet-300">await</span> agents.risk.review(plan);</p>
+          <p className="pl-4"><span className="text-sky-300">const</span> output = formatter.toHumanReadable({'{'} plan, risk {'}'});</p>
+          <p className="pl-4"><span className="text-emerald-300">return</span> {'{'} status: <span className="text-amber-200">"ready_for_review"</span>, confidence: output.score, output {'}'};</p>
+          <p>{'}'}</p>
+        </div>
+      </motion.div>
+    </motion.section>
   );
 }
 
@@ -153,80 +307,109 @@ function Home() {
       <div className="pointer-events-none fixed left-1/2 top-[-18rem] -z-10 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full bg-sky-200/35 blur-3xl" />
       <div className="pointer-events-none fixed bottom-0 right-[-10rem] -z-10 h-[30rem] w-[30rem] rounded-full bg-violet-200/25 blur-3xl" />
 
-      <header className="fixed top-0 z-50 w-full border-b border-slate-200/60 bg-white/70 backdrop-blur-2xl">
+      <header className="fixed top-0 z-50 w-full border-b border-slate-200/60 bg-white/72 backdrop-blur-2xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <a href="#top" className="text-sm font-semibold tracking-[-0.02em] text-slate-950 md:text-base">Aniket Pandey</a>
           <nav className="hidden items-center gap-8 text-sm font-medium text-slate-500 sm:flex">
-            <a href="#skills" className="transition-colors hover:text-slate-950">Skills</a>
-            <a href="#projects" className="transition-colors hover:text-slate-950">Projects</a>
-            <a href="#experience" className="transition-colors hover:text-slate-950">Experience</a>
+            <a href="#systems" className="transition-colors hover:text-slate-950">Systems</a>
+            <a href="#thinking" className="transition-colors hover:text-slate-950">Thinking</a>
+            <a href="#experience" className="transition-colors hover:text-slate-950">Impact</a>
             <a href="#contact" className="transition-colors hover:text-slate-950">Contact</a>
           </nav>
         </div>
       </header>
 
       <main id="top" className="mx-auto max-w-6xl px-6 pt-32 md:pt-40">
-        <motion.section initial="hidden" animate="visible" variants={staggerContainer} className="grid min-h-[78vh] items-center gap-14 py-10 lg:grid-cols-[1fr_0.78fr]">
+        <motion.section initial="hidden" animate="visible" variants={staggerContainer} className="relative grid min-h-[82vh] items-center gap-14 py-10 lg:grid-cols-[0.92fr_0.9fr]">
+          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-[3rem]">
+            {backgroundNodes.map((node) => (
+              <motion.span
+                key={node.id}
+                className="absolute h-1.5 w-1.5 rounded-full bg-sky-400/45"
+                style={{ left: node.left, top: node.top }}
+                animate={{ opacity: [0.15, 0.65, 0.15], y: [0, -10, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, delay: node.delay, ease: "easeInOut" }}
+              />
+            ))}
+          </div>
+
           <div>
-            <motion.p variants={fadeIn} className="inline-flex rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600 shadow-sm backdrop-blur">
+            <motion.p variants={fadeIn} className="inline-flex rounded-full border border-slate-200 bg-white/72 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600 shadow-sm backdrop-blur">
               GenAI Systems Developer | AI Product Builder (UI/UX Focused)
             </motion.p>
             <motion.p variants={fadeIn} className="mt-9 text-sm font-semibold uppercase tracking-[0.24em] text-sky-600">Aniket Pandey</motion.p>
-            <motion.h1 variants={fadeIn} className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.065em] text-slate-950 md:text-7xl lg:text-[5.8rem] lg:leading-[0.96]">
-              Designing intelligent systems. Building practical AI products.
+            <motion.h1 variants={fadeIn} className="mt-5 max-w-4xl text-5xl font-semibold tracking-[-0.065em] text-slate-950 md:text-7xl lg:text-[5.55rem] lg:leading-[0.97]">
+              Building Intelligent Systems, Not Just Applications
             </motion.h1>
             <motion.p variants={fadeIn} className="mt-8 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl md:leading-9">
-              I build multi-agent AI pipelines and decision-support workflows that turn complex ideas into refined, user-focused products with clear interfaces and structured outputs.
+              I design multi-agent AI workflows that move from messy inputs to structured decisions, usable outputs, and interfaces people can actually trust.
             </motion.p>
             <motion.div variants={fadeIn} className="mt-10 flex flex-wrap gap-4">
-              <motion.a whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }} href="#projects" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white shadow-[0_16px_40px_rgba(15,23,42,0.18)] transition-colors hover:bg-slate-800">
-                View Projects <ArrowRight className="h-4 w-4" />
+              <motion.a whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }} href="#systems" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-slate-950 px-7 text-sm font-semibold text-white shadow-[0_16px_40px_rgba(15,23,42,0.18)] transition-colors hover:bg-slate-800">
+                Explore Systems <ArrowRight className="h-4 w-4" />
               </motion.a>
-              <motion.a whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }} href="#contact" className="inline-flex h-12 items-center justify-center rounded-full border border-slate-200 bg-white/70 px-7 text-sm font-semibold text-slate-950 shadow-sm backdrop-blur transition-colors hover:bg-white">
+              <motion.a whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }} href="#contact" className="inline-flex h-12 items-center justify-center rounded-full border border-slate-200 bg-white/75 px-7 text-sm font-semibold text-slate-950 shadow-sm backdrop-blur transition-colors hover:bg-white">
                 Contact Me
               </motion.a>
             </motion.div>
           </div>
 
-          <motion.div variants={fadeIn} className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="absolute -inset-6 rounded-[2.25rem] bg-gradient-to-br from-sky-200/40 via-white to-violet-200/30 blur-2xl" />
-            <div className="relative rounded-[2rem] border border-white/70 bg-white/75 p-5 shadow-[0_30px_100px_rgba(15,23,42,0.12)] backdrop-blur-2xl">
-              <div className="rounded-[1.5rem] bg-[#0D0F12] p-6 font-mono text-[13px] leading-7 text-slate-300 shadow-2xl">
-                <div className="mb-5 flex gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-slate-600" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-slate-600" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-slate-600" />
+          <motion.div variants={fadeIn} className="relative mx-auto w-full max-w-[34rem]">
+            <div className="absolute -inset-7 rounded-[2.5rem] bg-gradient-to-br from-sky-200/45 via-white to-violet-200/30 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[2.15rem] border border-white/75 bg-white/78 p-5 shadow-[0_30px_100px_rgba(15,23,42,0.12)] backdrop-blur-2xl">
+              <div className="mb-5 flex items-center justify-between rounded-[1.35rem] border border-slate-200/70 bg-slate-50/75 px-4 py-3">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-white"><CircuitBoard className="h-4 w-4" /></span>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-950">Live System Map</p>
+                    <p className="text-xs text-slate-500">Intent to decision pipeline</p>
+                  </div>
                 </div>
-                <p><span className="text-sky-300">async function</span> <span className="text-amber-200">orchestrateWorkflow</span>(input) {'{'}</p>
-                <p className="pl-4"><span className="text-sky-300">const</span> intent = <span className="text-violet-300">await</span> agents.intent.detect(input);</p>
-                <p className="pl-4"><span className="text-sky-300">const</span> plan = <span className="text-violet-300">await</span> agents.planner.create(intent);</p>
-                <p className="pl-4"><span className="text-sky-300">const</span> risk = <span className="text-violet-300">await</span> agents.risk.review(plan);</p>
-                <p className="pl-4"><span className="text-emerald-300">return</span> formatDecision({'{'} plan, risk, nextStep: <span className="text-amber-200">"human_review"</span> {'}'});</p>
-                <p>{'}'}</p>
+                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-600">Online</span>
               </div>
-              <div className="mt-5 grid grid-cols-3 gap-3 text-center text-xs font-medium text-slate-500">
-                <div className="rounded-2xl bg-slate-50 px-3 py-4">Intent</div>
-                <div className="rounded-2xl bg-slate-50 px-3 py-4">Memory</div>
-                <div className="rounded-2xl bg-slate-50 px-3 py-4">Decision</div>
+
+              <div className="relative min-h-[24rem] rounded-[1.5rem] border border-slate-200/70 bg-gradient-to-br from-white to-slate-50/90 p-6">
+                <svg className="absolute inset-0 h-full w-full" viewBox="0 0 420 320" fill="none" aria-hidden="true">
+                  <path d="M78 70 C145 20 235 26 304 76" stroke="rgba(14,165,233,0.24)" strokeWidth="1.5" />
+                  <path d="M80 250 C160 304 274 284 338 208" stroke="rgba(34,197,94,0.24)" strokeWidth="1.5" />
+                  <path d="M92 164 C160 96 258 110 326 168" stroke="rgba(139,92,246,0.22)" strokeWidth="1.5" />
+                </svg>
+
+                <motion.div variants={systemPulse} animate="animate" className="absolute left-8 top-10 h-24 w-24 rounded-full border border-sky-200 bg-sky-50/80 p-4 shadow-[0_18px_50px_rgba(14,165,233,0.12)]">
+                  <p className="text-xs font-semibold text-sky-700">Input</p>
+                  <p className="mt-2 text-[11px] leading-4 text-slate-500">Resume, request, context</p>
+                </motion.div>
+                <motion.div variants={systemPulse} animate="animate" transition={{ delay: 0.45 }} className="absolute right-9 top-14 h-28 w-28 rounded-full border border-violet-200 bg-violet-50/80 p-4 shadow-[0_18px_50px_rgba(139,92,246,0.12)]">
+                  <p className="text-xs font-semibold text-violet-700">AI Layer</p>
+                  <p className="mt-2 text-[11px] leading-4 text-slate-500">Agents, memory, planning</p>
+                </motion.div>
+                <motion.div variants={systemPulse} animate="animate" transition={{ delay: 0.9 }} className="absolute bottom-10 left-1/2 h-28 w-28 -translate-x-1/2 rounded-full border border-emerald-200 bg-emerald-50/80 p-4 shadow-[0_18px_50px_rgba(34,197,94,0.12)]">
+                  <p className="text-xs font-semibold text-emerald-700">Output</p>
+                  <p className="mt-2 text-[11px] leading-4 text-slate-500">Clear decision and next step</p>
+                </motion.div>
+
+                <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[2rem] border border-slate-200 bg-white/90 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur">
+                  <Sparkles className="h-6 w-6 text-violet-500" />
+                </div>
               </div>
             </div>
           </motion.div>
         </motion.section>
 
-        <motion.section id="skills" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-24">
-          <SectionHeader eyebrow="Capabilities" title="A compact stack for building AI products end to end." description="The skill set combines agentic system thinking, frontend clarity, backend fundamentals, and deployment awareness so prototypes can become usable products." />
+        <motion.section id="skills" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-20">
+          <SectionHeader eyebrow="System layers" title="A compact stack for turning AI workflows into usable products." description="The portfolio is organized like a product architecture: intelligence, interface, and operational readiness working together." />
           <div className="mt-14 grid gap-5 md:grid-cols-3">
             {skillGroups.map((group) => {
               const Icon = group.icon;
               return (
-                <motion.div key={group.title} variants={fadeIn} whileHover={{ y: -5, scale: 1.02 }} transition={{ duration: 0.45, ease: "easeInOut" }} className="rounded-[1.75rem] border border-white/70 bg-white/68 p-6 shadow-[0_20px_70px_rgba(15,23,42,0.055)] backdrop-blur-xl hover:shadow-[0_28px_80px_rgba(139,92,246,0.12)]">
+                <motion.div key={group.title} variants={fadeIn} whileHover={{ y: -5, scale: 1.02 }} transition={{ duration: 0.45, ease: "easeInOut" }} className="group rounded-[1.75rem] border border-white/75 bg-white/70 p-6 shadow-[0_20px_70px_rgba(15,23,42,0.055)] backdrop-blur-xl hover:shadow-[0_28px_80px_rgba(139,92,246,0.10)]">
                   <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-lg">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="text-lg font-semibold tracking-[-0.03em] text-slate-950">{group.title}</h3>
                   <div className="mt-5 grid gap-2">
                     {group.skills.map((skill) => (
-                      <div key={skill} className="rounded-2xl border border-slate-200/70 bg-white/65 px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:text-slate-950">
+                      <div key={skill} className={`rounded-2xl border border-slate-200/70 bg-white/70 px-4 py-3 text-sm font-medium text-slate-600 transition-colors group-hover:${group.tone}`}>
                         {skill}
                       </div>
                     ))}
@@ -237,33 +420,48 @@ function Home() {
           </div>
         </motion.section>
 
-        <motion.section id="projects" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-24">
-          <SectionHeader eyebrow="Projects" title="Systems that make AI outputs easier to trust and use." description="The work focuses on decision workflows, recruiter intelligence, business automation, and interface systems where clarity matters as much as capability." />
-          <div className="mt-16 space-y-16">
-            <div>
-              <motion.div variants={fadeIn} className="mb-6 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-                <Network className="h-4 w-4 text-violet-500" /> GenAI Projects
-              </motion.div>
-              <div className="grid gap-6 md:grid-cols-2">
-                {genAiProjects.map((project) => <ProjectCard key={project.title} project={project} />)}
-              </div>
+        <motion.section id="systems" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-24">
+          <SectionHeader eyebrow="AI Systems" title="AI Systems I’ve Built" description="Each project is presented as a system module: what it accepts, how it reasons, and what it returns to the human using it." />
+          <div className="mt-16 space-y-8">
+            {aiSystems.map((module, index) => <SystemModule key={module.name} module={module} index={index} />)}
+          </div>
+          <motion.div variants={fadeIn} className="mt-16">
+            <p className="mb-6 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+              <Workflow className="h-4 w-4 text-emerald-500" /> Product Systems
+            </p>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {productSystems.map((module, index) => <SystemModule key={module.name} module={module} index={index + 2} />)}
             </div>
-            <div>
-              <motion.div variants={fadeIn} className="mb-6 flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-                <Workflow className="h-4 w-4 text-emerald-500" /> Other Projects
-              </motion.div>
-              <div className="grid gap-6 md:grid-cols-2">
-                {otherProjects.map((project) => <ProjectCard key={project.title} project={project} />)}
-              </div>
-            </div>
+          </motion.div>
+        </motion.section>
+
+        <motion.section id="thinking" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-24">
+          <SectionHeader eyebrow="How my systems think" title="From raw signal to usable decision." description="The differentiator is not just calling a model. It is designing the workflow around context, reasoning, risk, and human-readable outputs." />
+          <div className="mt-14 grid gap-4 lg:grid-cols-4">
+            {thinkingFlow.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <motion.div key={step.label} variants={fadeIn} whileHover={{ y: -6 }} transition={{ duration: 0.45, ease: "easeInOut" }} className="relative rounded-[1.75rem] border border-white/75 bg-white/72 p-6 shadow-[0_22px_70px_rgba(15,23,42,0.055)] backdrop-blur-2xl">
+                  {index < thinkingFlow.length - 1 && <div className="absolute right-[-1.15rem] top-1/2 z-10 hidden h-px w-8 bg-gradient-to-r from-slate-200 to-transparent lg:block" />}
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">{step.label}</span>
+                    <Icon className={`h-5 w-5 ${step.color}`} />
+                  </div>
+                  <h3 className="mt-8 text-xl font-semibold tracking-[-0.035em] text-slate-950">{step.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-slate-600">{step.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.section>
 
+        <TechnicalProof />
+
         <motion.section id="experience" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="grid gap-12 py-24 lg:grid-cols-[0.78fr_1fr]">
-          <SectionHeader eyebrow="Experience" title="Practical product execution with AI-assisted workflows." description="Aniket’s experience is shaped around shipping useful interfaces, improving repetitive workflows, and making AI tools practical for day-to-day delivery." />
+          <SectionHeader eyebrow="Impact" title="Experience translated into product outcomes." description="The focus stays on visible improvement: clearer interfaces, faster workflows, cleaner assets, and practical AI adoption." />
           <motion.div variants={fadeIn} className="space-y-5">
             {experience.map((item) => (
-              <motion.div key={item.role} whileHover={{ x: 4 }} transition={{ duration: 0.4, ease: "easeInOut" }} className="rounded-[1.5rem] border border-white/70 bg-white/70 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.045)] backdrop-blur-xl">
+              <motion.div key={item.role} whileHover={{ x: 4 }} transition={{ duration: 0.4, ease: "easeInOut" }} className="rounded-[1.5rem] border border-white/75 bg-white/72 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.045)] backdrop-blur-xl">
                 <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
                   <div>
                     <h3 className="text-lg font-semibold tracking-[-0.03em] text-slate-950">{item.role}</h3>
@@ -271,17 +469,17 @@ function Home() {
                   </div>
                   <p className="text-sm font-medium text-slate-400">{item.period}</p>
                 </div>
-                <p className="mt-5 text-sm leading-7 text-slate-600">{item.impact}</p>
+                <p className="mt-5 text-sm leading-7 text-slate-600">{item.outcome}</p>
               </motion.div>
             ))}
             <div className="grid gap-5 sm:grid-cols-2">
-              <div className="rounded-[1.5rem] border border-white/70 bg-white/70 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.045)] backdrop-blur-xl">
+              <div className="rounded-[1.5rem] border border-white/75 bg-white/72 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.045)] backdrop-blur-xl">
                 <ShieldCheck className="h-5 w-5 text-emerald-500" />
                 <h3 className="mt-4 text-lg font-semibold tracking-[-0.03em] text-slate-950">B.Tech Computer Engineering</h3>
                 <p className="mt-2 text-sm leading-7 text-slate-600">RK University, Rajkot. Expected May 2026. CGPA 8.40/10.</p>
               </div>
-              <div className="rounded-[1.5rem] border border-white/70 bg-white/70 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.045)] backdrop-blur-xl">
-                <h3 className="text-lg font-semibold tracking-[-0.03em] text-slate-950">Certifications</h3>
+              <div className="rounded-[1.5rem] border border-white/75 bg-white/72 p-6 shadow-[0_18px_60px_rgba(15,23,42,0.045)] backdrop-blur-xl">
+                <h3 className="text-lg font-semibold tracking-[-0.03em] text-slate-950">Learning Signals</h3>
                 <div className="mt-4 space-y-2 text-sm leading-6 text-slate-600">
                   {certifications.map((cert) => <p key={cert}>{cert}</p>)}
                 </div>
@@ -291,7 +489,7 @@ function Home() {
         </motion.section>
 
         <motion.section id="contact" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-120px" }} variants={staggerContainer} className="py-24">
-          <div className="overflow-hidden rounded-[2.25rem] border border-white/70 bg-white/75 p-8 shadow-[0_30px_100px_rgba(15,23,42,0.08)] backdrop-blur-2xl md:p-12">
+          <div className="overflow-hidden rounded-[2.25rem] border border-white/75 bg-white/78 p-8 shadow-[0_30px_100px_rgba(15,23,42,0.08)] backdrop-blur-2xl md:p-12">
             <motion.div variants={fadeIn} className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-end">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-600">Contact</p>

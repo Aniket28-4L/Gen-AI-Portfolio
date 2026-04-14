@@ -1,0 +1,151 @@
+Act as a senior product designer and frontend engineer building a portfolio that feels like an AI startup founder’s product, not a resume website.
+
+You are given an existing React + Tailwind portfolio. Your task is to UPGRADE and TRANSFORM it into a premium, product-level experience.
+
+Do NOT rebuild randomly. Improve structure, design, and interactions.
+
+--------------------------------------------------
+🎯 CORE TRANSFORMATION GOAL
+--------------------------------------------------
+
+Convert the website into something that feels like:
+- A live AI system interface
+- A startup product showcase
+- A founder’s personal AI lab
+
+The user should feel:
+“I am interacting with an intelligent system”
+
+NOT:
+“I am reading a resume”
+
+--------------------------------------------------
+🎨 DESIGN DIRECTION (APPLE + AI HYBRID)
+--------------------------------------------------
+
+- Use a LIGHT, minimal interface (no dark theme)
+- Strong whitespace and spacing discipline
+- Clean typography hierarchy (large headings, soft body text)
+- Subtle gradients only (no heavy glow spam)
+
+Color behavior:
+- Blue → system / logic
+- Green → decisions / outputs
+- Violet → intelligence / AI layer
+
+Keep UI calm, premium, and intentional.
+
+--------------------------------------------------
+⚡ INTERACTION DESIGN (CRITICAL)
+--------------------------------------------------
+
+Add intelligence through interactions:
+
+- Hover = reveal deeper insight
+- Cards = expand or elevate on hover
+- Smooth transitions between sections
+- Subtle motion (no flashy animations)
+
+Everything should feel responsive and alive.
+
+--------------------------------------------------
+🧱 STRUCTURE TRANSFORMATION
+--------------------------------------------------
+
+1. HERO → SYSTEM ENTRY POINT
+
+Replace static hero with:
+- A strong statement:
+  “Building Intelligent Systems, Not Just Applications”
+- Short description of multi-agent AI work
+- Add subtle animated background (gradient or particles)
+
+--------------------------------------------------
+
+2. PROJECTS → “AI SYSTEMS”
+
+Rename section to:
+“AI Systems I’ve Built”
+
+Each project should look like a SYSTEM MODULE, not a card.
+
+Structure example:
+- System Name
+- Purpose
+- Input → Process → Output (visual or text flow)
+- Key capabilities (LLMs, agents, pipelines)
+
+Add hover interaction to reveal more details.
+
+--------------------------------------------------
+
+3. ADD “HOW MY SYSTEMS THINK” SECTION (IMPORTANT)
+
+This is your differentiator.
+
+Show:
+- Input → AI Processing → Decision → Output
+
+Use:
+- Simple flow layout
+- Arrows or steps
+- Clean visual storytelling
+
+--------------------------------------------------
+
+4. EXPERIENCE → IMPACT BASED
+
+- Show outcomes, not responsibilities
+- Keep minimal and clean
+
+--------------------------------------------------
+
+5. TECHNICAL PROOF
+
+- Add a code snippet section styled like a real editor
+- Show an AI agent or workflow function
+- Make it visually distinct
+
+--------------------------------------------------
+
+6. WHATSAPP BUTTON (MUST WORK)
+
+Add floating button (bottom-right):
+
+Link:
+https://wa.me/917984266324?text=Hi%20Aniket%2C%20I%20reviewed%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20potential%20project%20with%20you.
+
+Requirements:
+- Always visible
+- Smooth hover/pulse animation
+- Clean, premium design (not bulky)
+
+--------------------------------------------------
+⚙️ TECH RULES
+--------------------------------------------------
+
+- Keep React + Tailwind
+- Improve components, do not break structure
+- Use Framer Motion for subtle animations
+- Ensure full responsiveness
+
+--------------------------------------------------
+🚫 REMOVE THESE (IMPORTANT)
+--------------------------------------------------
+
+- Generic cards
+- Overloaded text blocks
+- Resume-style layouts
+- Flashy/glow-heavy UI
+- Cluttered sections
+
+--------------------------------------------------
+🏁 FINAL GOAL
+--------------------------------------------------
+
+The final website must feel like:
+- A real AI product interface
+- A founder showcasing systems
+- A premium, minimal, Apple-level experience
+
+If any part feels generic, redesign it until it feels like a startup product.
