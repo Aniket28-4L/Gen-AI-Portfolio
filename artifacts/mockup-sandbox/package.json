@@ -4,9 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "set PORT=5174&& set BASE_PATH=/&& vite dev",
+    "build": "set PORT=5174&& set BASE_PATH=/&& vite build",
+    "preview": "set PORT=5174&& set BASE_PATH=/&& vite preview",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {
